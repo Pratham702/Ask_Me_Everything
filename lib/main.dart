@@ -28,24 +28,32 @@ class _askState extends State<ask> {
               ),
             )
         ),
-        body:
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: FlatButton(
-              onPressed: (){
-                setState(() {
-                  number=Random().nextInt(4)+1;
-                });
-              },
-              child: Image(
-                image: AssetImage('images/ball$number.png'),
-              ),
-            ),
-          ),
-        ),
+        body: new Stack(
+            children: <Widget>[
+        new Container(
+        decoration: new BoxDecoration(
+        image: new DecorationImage(image: new AssetImage("images/background_image.jpg"), fit: BoxFit.cover,),
+    ),
+    ),
+      new Center(
+    child: Padding(
+    padding: const EdgeInsets.all(10.0),
+    child: FlatButton(
+    onPressed: (){
+    setState(() {
+    number=Random().nextInt(4)+1;
+    });
+    },
+    child: Image(
+    image: AssetImage('images/ball$number.png'),
+    ),
+    ),
+    ),
+    ),
+            ],
+        )
 
-      ),
+    ),
     );
     ;
   }
